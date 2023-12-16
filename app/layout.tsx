@@ -5,6 +5,7 @@ import "./globals.css";
 import React from "react";
 
 import { ClerkProvider } from "@clerk/nextjs";
+import ThemeProvider from "@/context/ThemeProvider";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -32,13 +33,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <ClerkProvider>
-      <html lang="en">
-        <body className={`${inter.variable} ${spaceGrotest.variable}`}>
-          <h1 className="h1-bold">This is piece of text</h1>
-          {children}
-        </body>
-      </html>
-    </ClerkProvider>
+    <html lang="en">
+      <body className={`${inter.variable} ${spaceGrotest.variable}`}>
+        <h1 className="h1-bold">This is piece of text</h1>
+        <ClerkProvider>
+          <ThemeProvider>{children}</ThemeProvider>
+        </ClerkProvider>
+      </body>
+    </html>
   );
 }
