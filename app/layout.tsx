@@ -35,7 +35,6 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${inter.variable} ${spaceGrotest.variable}`}>
-        <h1 className="h1-bold">This is piece of text</h1>
         <ClerkProvider>
           <ThemeProvider>{children}</ThemeProvider>
         </ClerkProvider>
